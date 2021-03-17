@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Header from './header'
 
 export default class App extends Component {
   render() {
     return (
       <div className='app'>
-        <h1>DevCamp React Starter</h1>
-        <h2>React Redux Router</h2>
+        <Header/>
+        <h2>URL will go here</h2>
+        <button>Shoten URL</button>
+        <h3>The return will go here</h3>
       </div>
     );
   }
