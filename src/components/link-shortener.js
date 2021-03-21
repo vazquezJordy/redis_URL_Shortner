@@ -8,6 +8,7 @@ export default class LinkShortener extends Component {
   constructor(props) {
     super(props);
 
+    // we are checking to see if it will show in gh
     this.state = {
       urlEntered: "",
     };
