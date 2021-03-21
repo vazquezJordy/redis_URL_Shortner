@@ -1,28 +1,55 @@
 import React, { Component } from "react";
+// import Fetch from 'fetch';
+// import Redis from 'redis';
+
+const redis_port = process.env.REDIS_PORT || 6379;
 
 export default class LinkShortener extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       urlEntered: "",
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+      this.setState({
+          [event.target.name]: event.target.value,
+          errorText: ""
+      });
+      console.log("change triggered")
+      console.log(event.target.value)
   }
 
   urlShortenerFunc(url) {}
 
+  handleSubmit(event) {
+    consoe.log(this.state.urlEntered)
+    debug
+    event.preventDefault();
+  }
+
   render() {
     return (
-      <div className= "url-shortener-wrapper">
-        <input
-          className="url-input"
-          type="url"
-          name="url-name"
-          placeholder="Your URL"
-          value={this.state.urlEntered}
-        />
-        <div className= "url-Button-wrapper">
-        <button>Shorten URL</button>
+      <div className="url-shortener-wrapper">
+        <form onSubmit={this.handleSubmit} >
+        <div className="url-input">
+          <input 
+            type="url"
+            name="urlEntered"
+            placeholder="Your URL"
+            value={this.state.urlEntered}
+            onChange={this.handleChange}
+          />
         </div>
+        
+        <div className="url-Button-wrapper">
+          <button type="submit">Shorten URL</button>
+        </div>
+        </form>
       </div>
     );
   }
